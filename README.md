@@ -1,68 +1,45 @@
-# Replicador de Estrutura de Pastas (Python)
+# Replicador de Estrutura de Pastas (Python) - Versão Aprimorada
 
-Este projeto replica **somente a organização das pastas** de uma origem para um destino, **sem copiar nenhum arquivo**.
+Esta versão faz **varredura completa e profunda**, recriando **TODAS as pastas e subpastas**, inclusive **pastas dentro de pastas**, sem copiar arquivos.
 
-## O que ele faz
-- Lê toda a árvore de diretórios de uma pasta de origem
-- Cria a mesma estrutura em uma nova pasta de saída
-- **Ignora todos os arquivos**
-- Salva por padrão a saída na pasta **Downloads** do usuário
-- Gera um arquivo `relatorio_replicacao.txt` ao final
+## O que faz
+- Lê toda a árvore da pasta de origem
+- Varre todas as subpastas em profundidade completa
+- Cria a mesma estrutura no destino
+- Não copia arquivos
+- Usa `Downloads` como destino padrão
+- Gera `relatorio_replicacao.txt` com a lista completa das pastas criadas
+- Exibe mensagem final de **PROCESSO COMPLETO**
 
-## Arquivos do projeto
-- `replicador_estrutura.py` → script principal
-- `executar_replicador.bat` → atalho para facilitar a execução no Windows
-- `README.md` → este guia
+## Arquivos
+- `replicador_estrutura.py`
+- `executar_replicador.bat`
+- `README.md`
 
-## Como usar (modo interativo)
-### Windows
-1. Abra o **Prompt de Comando** dentro da pasta do projeto
-2. Execute:
-
-```bash
-python replicador_estrutura.py
-```
-
-3. Informe:
-   - caminho da pasta de origem
+## Uso rápido (Windows)
+1. Extraia o `.zip`
+2. Abra a pasta extraída
+3. Dê duplo clique em `executar_replicador.bat`
+4. Informe:
+   - pasta de origem
    - destino (ou pressione ENTER para usar Downloads)
-   - nome da pasta de saída (ou ENTER para gerar automático)
+   - nome da saída (ou ENTER para nome automático)
 
-### Exemplo
+## Uso por comando
 ```bash
-python replicador_estrutura.py
+python replicador_estrutura.py "C:\Origem\MinhaPasta" --destino "C:\Users\SeuUsuario\Downloads" --nome-saida "Estrutura_Replicada"
 ```
 
-Depois, informe algo como:
+## Saída esperada
+O programa criará algo como:
 ```text
-C:\Users\SeuUsuario\Documents\MinhaOrigem
+Downloads\ESTRUTURA_VAZIA_MinhaPasta_20260415_140000\MinhaPasta\...
 ```
 
-Se pressionar ENTER no destino, a saída será criada em:
+E também:
 ```text
-C:\Users\SeuUsuario\Downloads
-```
-
-## Como usar por linha de comando (sem perguntas)
-```bash
-python replicador_estrutura.py "C:\\Origem\\MinhaPasta" --destino "C:\\Users\\SeuUsuario\\Downloads" --nome-saida "Estrutura_Replicada"
-```
-
-## Comportamento padrão
-Se você não informar o destino, o script tenta usar automaticamente:
-- `C:\Users\<usuario>\Downloads` no Windows
-- `~/Downloads` em outros sistemas
-
-## Saída gerada
-O script cria uma pasta parecida com:
-```text
-Downloads\ESTRUTURA_VAZIA_MinhaPasta_20260415_140000
-```
-
-Dentro dela, ficará a estrutura vazia da pasta original e o relatório:
-```text
-relatorio_replicacao.txt
+Downloads\ESTRUTURA_VAZIA_MinhaPasta_20260415_140000\relatorio_replicacao.txt
 ```
 
 ## Observação
-Esse script **não move e não copia arquivos**. Ele apenas recria as pastas.
+Esta versão foi reforçada para garantir a recriação de **todas as camadas** da estrutura de diretórios.
