@@ -1,4 +1,4 @@
-# Replicador de Estrutura de Pastas (Python) - Versão Aprimorada
+# Replicador de Estrutura de Pastas (Python)
 
 Esta versão faz **varredura completa e profunda**, recriando **TODAS as pastas e subpastas**, inclusive **pastas dentro de pastas**, sem copiar arquivos.
 
